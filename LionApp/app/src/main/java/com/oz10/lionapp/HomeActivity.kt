@@ -31,6 +31,7 @@ class HomeActivity : AppCompatActivity() {
         buttons["Gesture"] = GestureActivity::class.java
         buttons["화면전환-로그인"] = LoginActivity::class.java
         buttons["액티비티 생명주기"] = StatechangeActivity::class.java
+        buttons["두 개의 프래그먼트"] = TwoFragmentActivity::class.java
 
 
         val params = LinearLayout.LayoutParams(

@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LionApp">
         <activity
+            android:name=".TwoFragmentActivity"
+            android:exported="false" />
+        <activity
             android:name=".StatechangeActivity"
             android:exported="false" />
         <activity
