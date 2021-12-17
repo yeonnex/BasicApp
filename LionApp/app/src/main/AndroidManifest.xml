@@ -10,6 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LionApp">
         <activity
+            android:name=".RecycleActivity"
+            android:exported="false"
+            android:label="@string/title_activity_recycle"
+            android:theme="@style/Theme.LionApp.NoActionBar" />
+        <activity
             android:name=".TabActivity"
             android:exported="false"
             android:label="@string/title_activity_tab"
