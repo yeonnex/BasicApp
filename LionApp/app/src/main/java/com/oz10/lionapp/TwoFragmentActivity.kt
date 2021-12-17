@@ -21,7 +21,7 @@ import com.oz10.lionapp.databinding.ActivityTwoFragmentBinding
 // 구글맵 자체도 프래그먼트로 이루어져있음
 // 프래그먼트 꼭 알아야 함
 
-class TwoFragmentActivity : FragmentActivity() {
+class TwoFragmentActivity : FragmentActivity(), EditbarFragment.EditorListenr {
     private lateinit var binding: ActivityTwoFragmentBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,6 +33,7 @@ class TwoFragmentActivity : FragmentActivity() {
             val txt = binding.etMsg.text.toString()
             val fragment = supportFragmentManager.findFragmentById(
                 R.id.fragmentContainerView) as OneFragment
+
             if (fragment is OneFragment) // 인스턴스 비교
                 (fragment as OneFragment).changeText(text)
             else
@@ -53,5 +54,19 @@ class TwoFragmentActivity : FragmentActivity() {
                 R.id.fragmentContainerView, fragment).commit()
             )
         }
+    }
+
+    private fun changeFragment(fragment: Fragment){
+        fragment.arguments = intent.extras
+        supportFragmentManager.beginTransaction().replace(
+            R.id.fragmentContainerView, fragment).commit()
+        )
+    }
+
+    override fun onButtonClick(text: String) {
+        val fragment = supportFragmentManager.findFragmentById(
+            R.id.fragmentContainerView) as IChangeText
+        fragment.changeText(text)
+        )
     }
 }
