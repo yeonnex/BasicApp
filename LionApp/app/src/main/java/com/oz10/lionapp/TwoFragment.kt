@@ -36,6 +36,9 @@ class TwoFragment : Fragment() {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_two, container, false)
     }
+    fun changeText(text:String){
+        binding.textView.text = text
+    }
 
     companion object {
         /**

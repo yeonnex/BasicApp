@@ -31,9 +31,13 @@ class TwoFragmentActivity : FragmentActivity() {
 
         binding.btnOK.setOnClickListener {
             val txt = binding.etMsg.text.toString()
-            val oneFragment = supportFragmentManager.findFragmentById(
+            val fragment = supportFragmentManager.findFragmentById(
                 R.id.fragmentContainerView) as OneFragment
-            oneFragment.changeText(txt)
+            if (fragment is OneFragment) // 인스턴스 비교
+                (fragment as OneFragment).changeText(text)
+            else
+                (fragment as TwoFragment).changeText(text)
+
         }
         binding.btnTwo.setOnClickListener {
             val fragment = TwoFramgent()
