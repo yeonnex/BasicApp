@@ -1,6 +1,7 @@
 package com.oz10.lionapp
 
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
@@ -14,6 +15,12 @@ class MaterialActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMaterialBinding
+
+    var actionOnClickListener = View.OnClickListener { view ->
+        Snackbar.make(view, "Action Completed", Snackbar.LENGTH_LONG)
+            .setAction("Action", null).show()
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
