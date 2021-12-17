@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
+import com.oz10.lionapp.databinding.ActivityTwoFragmentBinding
 
 // 안드로이드 프래그먼트
 // Fragment : 액티비티 내부에서 독립적으로 앱의 UI를 처리
@@ -16,9 +17,23 @@ import androidx.fragment.app.FragmentActivity
 // 프래그먼트 이벤트 처리
 //  이벤트 시스템을 사용! Listener 에다 동작 등록
 
+// Material 디자인 전부 프래그먼트로 되어있음
+// 구글맵 자체도 프래그먼트로 이루어져있음
+// 프래그먼트 꼭 알아야 함
+
 class TwoFragmentActivity : FragmentActivity() {
+    private lateinit var binding: ActivityTwoFragmentBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding = ActivityTwoFragmentBinding.inflate(layoutInflater)
         setContentView(R.layout.activity_two_fragment)
+
+        binding.btnOK.setOnClickListener {
+            val txt = binding.etMsg.text.toString()
+            val oneFragment = supportFragmentManager.findFragmentById(
+                R.id.fragmentContainerView) as OneFragment
+            oneFragment.changeText(txt)
+        }
     }
 }
