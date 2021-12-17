@@ -8,6 +8,11 @@ import android.widget.LinearLayout
 import com.oz10.lionapp.databinding.ActivityHomeBinding
 import kotlin.math.roundToInt
 
+/**Material 디자인
+안드로이드 5.0 에서 소개
+ - 플로팅 액션 버튼(FAB)
+ - 스낵바
+*/
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
     private val buttons = mutableMapOf<String, Class<*>>()
@@ -32,6 +37,7 @@ class HomeActivity : AppCompatActivity() {
         buttons["화면전환-로그인"] = LoginActivity::class.java
         buttons["액티비티 생명주기"] = StatechangeActivity::class.java
         buttons["두 개의 프래그먼트"] = TwoFragmentActivity::class.java
+        buttons["Material 디자인"] = MaterialActivity::class.java
 
 
         val params = LinearLayout.LayoutParams(
