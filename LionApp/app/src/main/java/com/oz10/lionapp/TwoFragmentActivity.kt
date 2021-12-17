@@ -35,5 +35,19 @@ class TwoFragmentActivity : FragmentActivity() {
                 R.id.fragmentContainerView) as OneFragment
             oneFragment.changeText(txt)
         }
+        binding.btnTwo.setOnClickListener {
+            val fragment = TwoFramgent()
+            fragment.arguments = intent.extras
+            supportFragmentManager.beginTransaction().replace(
+                R.id.fragmentContainerView, fragment).commit()
+            )
+        }
+        binding.btnOK.setOnClickListener {
+            val fragment = OneFramgent()
+            fragment.arguments = intent.extras
+            supportFragmentManager.beginTransaction().replace(
+                R.id.fragmentContainerView, fragment).commit()
+            )
+        }
     }
 }
